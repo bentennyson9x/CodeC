@@ -1,0 +1,15 @@
+CREATE TABLE Amount (ID int(10) NOT NULL AUTO_INCREMENT, Money varchar(255), ReasonsTranferAmount int(10) UNIQUE, ReasonsPayAmount int(10) UNIQUE, ReasonsCollectAmount int(10) UNIQUE, AccountMoneyID int(10) NOT NULL, PRIMARY KEY (ID));
+CREATE TABLE Finance (ID int(10) NOT NULL AUTO_INCREMENT, AmountFinanceInit int(10), AmountFinanceCurrent int(10), AmountFinanceTotal int(10), CustomerID int(10) NOT NULL, PRIMARY KEY (ID));
+CREATE TABLE PassWord (ID int(10) NOT NULL AUTO_INCREMENT, PassWord varchar(255), CustomerID int(10) NOT NULL, PRIMARY KEY (ID));
+CREATE TABLE Name (ID int(10) NOT NULL AUTO_INCREMENT, FirstName varchar(255), MidName varchar(255), LastName varchar(255), FullName varchar(255), CustomerID int(10) NOT NULL, PRIMARY KEY (ID));
+CREATE TABLE Reasons (ID int(10) NOT NULL AUTO_INCREMENT, `Date` date, SpendingWith varchar(255), Description varchar(255), Trip varchar(255), Location varchar(255), Time time, AmountID int(10) NOT NULL, PRIMARY KEY (ID));
+CREATE TABLE Customer (ID int(10) NOT NULL AUTO_INCREMENT, Address varchar(255), PhoneNumber varchar(255), Email varchar(255), IDClient varchar(255) UNIQUE, PRIMARY KEY (ID));
+CREATE TABLE OldPassWord (ID int(10) NOT NULL AUTO_INCREMENT, PassWord varchar(255), `Column` int(10), CustomerID int(10) NOT NULL, PRIMARY KEY (ID));
+CREATE TABLE AccountMoney (NameAccount varchar(255) NOT NULL, TypeAccount varchar(255), CustomerID int(10) NOT NULL, ID int(10) NOT NULL AUTO_INCREMENT, PRIMARY KEY (ID));
+ALTER TABLE PassWord ADD CONSTRAINT FKPassWord190782 FOREIGN KEY (CustomerID) REFERENCES Customer (ID);
+ALTER TABLE OldPassWord ADD CONSTRAINT FKOldPassWor101957 FOREIGN KEY (CustomerID) REFERENCES Customer (ID);
+ALTER TABLE Finance ADD CONSTRAINT FKFinance498770 FOREIGN KEY (CustomerID) REFERENCES Customer (ID);
+ALTER TABLE Name ADD CONSTRAINT FKName523354 FOREIGN KEY (CustomerID) REFERENCES Customer (ID);
+ALTER TABLE AccountMoney ADD CONSTRAINT FKAccountMon889167 FOREIGN KEY (CustomerID) REFERENCES Customer (ID);
+ALTER TABLE Reasons ADD CONSTRAINT FKReasons978121 FOREIGN KEY (AmountID) REFERENCES Amount (ID);
+ALTER TABLE Amount ADD CONSTRAINT FKAmount868022 FOREIGN KEY (AccountMoneyID) REFERENCES AccountMoney (ID);
