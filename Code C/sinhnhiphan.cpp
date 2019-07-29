@@ -2,6 +2,7 @@
 #include<string>
 using namespace std;
 int a[100];
+int ok=0;
 void sinhNP(int a[100],int n){
 	for(int i=n-1;i>=0;i--){
 		if(a[i]==0){
@@ -11,7 +12,9 @@ void sinhNP(int a[100],int n){
 			}
 			break;
 		}
+		if(i==0)	ok=1;
 	}
+	
 }
 bool final(int a[100],int n){
 	int dem=0;
@@ -36,9 +39,10 @@ main(){
 	scanf("%d",&n);
 	gan(a,n);
 	in(a,n);
-	while(final(a,n)==false){
+	while(true){
 		printf("\n");
 		sinhNP(a,n);
+		if(ok==1) break;
 		in(a,n);
 	}
 }

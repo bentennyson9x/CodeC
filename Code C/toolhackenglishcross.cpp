@@ -10,14 +10,15 @@ void khoitao() {
         b[i] = i;
     }
 }
-
+int kiemtra(string kq){
+	if (kq.compare("parisgateauxc4")) return 1;
+}
 void in() {
     for (int i = 1; i <= k; i++)
         {
         	 cout <<c.at(a[b[i]]-1);
 		}
 		  cout << endl;
-
 }
 
 void sinhhv() {
@@ -43,6 +44,22 @@ void sinh() {
     int p = a[i];
     while (i <= k) a[i++] = p++;
 }
+void sinh1() {
+    int i = k;
+    while (a[i] == n - k + i&&i>0) i--;
+    if (i == 0) stop = 1;
+    else a[i]++;
+    int p = a[i];
+    while (i <= k) a[i++] = p++;
+}
+void sinh2() {
+    int i = k;
+    while (a[i] == n - k + i&&i>0) i--;
+    if (i == 0) stop = 1;
+    else a[i]++;
+    int p = a[i];
+    while (i <= k) a[i++] = p++;
+}
 
 void next() {
     while (stop == 0) {
@@ -57,6 +74,8 @@ void next() {
 
 }
 
+	
+
 main() {
     string choice;
     do{
@@ -70,6 +89,7 @@ main() {
     getline(cin,c);
     khoitao();
     next();
+    cout<<"parisgateauxc4"<<endl;
     cout<<"Ban muon thu lai khong ( ok || no )"<<endl;
     fflush(stdin);
     getline(cin,choice);

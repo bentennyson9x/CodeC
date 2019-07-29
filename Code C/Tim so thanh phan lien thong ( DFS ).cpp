@@ -15,9 +15,16 @@ int Init(){
 			in>>a[i][j];
 		}
 	}
+	for (int i=1;i<=n;i++){
+		for (int j=1;j<=n;j++){
+			cout<<a[i][j]<<"  ";
+		}
+		cout<<endl;
+	}
 }
 int DFS( int u ){
 	xet[u]=false;
+	cout<<u<<" ";
 	for (int i=1;i<=n;i++){
 		if (a[u][i]==1&&xet[i]==true){
 			xet[i] =false;
@@ -27,15 +34,16 @@ int DFS( int u ){
 }
 int main (){
 Init();
-int solt=0;
-for (int i=1;i<=n;i++){
-	if (xet[i]==true){
-		DFS(i);
-		solt++;
-	}
-}
+DFS(1);
+//int solt=0;
+//for (int i=1;i<=n;i++){
+//	if (xet[i]==true){
+//		DFS(i);
+//		solt++;
+//	}
+//}
 
-cout<<solt<<endl;
+//cout<<solt<<endl;
 return 0;
 }
 

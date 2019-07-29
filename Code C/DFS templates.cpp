@@ -13,6 +13,9 @@ int Init(){
 		ke[v].push_back (u);// dinh u ke dinh v
 	}
 }
+int InitDocFile(){
+	
+}
 int DFS_use_Recurse( int u ){
 	xet[u]=false;
 	cout << u<< " ";

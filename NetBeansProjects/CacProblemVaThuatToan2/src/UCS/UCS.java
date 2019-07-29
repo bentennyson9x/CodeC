@@ -181,7 +181,7 @@ public class UCS {
         ucs.DocFile();
         ucs.DisplayMatrix();
         ucs.setVertexStart(1);
-        ucs.setVertexGoal(5);
+        ucs.setVertexGoal(7);
         ucs.UniformCostSearch(1);
         ucs.DisplayRoad();
        
